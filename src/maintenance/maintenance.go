@@ -2,7 +2,10 @@ package maintenance
 
 import "errors"
 
-func NeedsMaintenace(days int) (decision bool, err error) {
+type Specialist struct {
+}
+
+func (s *Specialist) NeedsMaintenance(days int) (decision bool, err error) {
 	if days < 0 {
 		return false, errors.New("cannot accept less than zero days")
 	}
