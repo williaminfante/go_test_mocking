@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/williaminfante/go_test_mocking/maintenance"
+	"github.com/williaminfante/go_test_mocking/src/maintenance"
 )
 
 func TestNeedsMaintenace(t *testing.T) {
