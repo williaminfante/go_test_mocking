@@ -2,17 +2,13 @@ package vehicle
 
 import (
 	"fmt"
+
+	"github.com/williaminfante/go_test_mocking/src/maintenance"
 )
 
-type MaintenanceAPI interface {
-	NeedsMaintenance(days int) (decision bool, err error)
-}
-type MaintenanceWrapper struct {
-	Maintenance MaintenanceAPI
-}
-
-func (w *MaintenanceWrapper) ConductChecks(name string, days_used int) (string, error) {
-	decision, errMaintenance := w.Maintenance.NeedsMaintenance(days_used)
+func ConductChecks(name string, days_used int) (string, error) {
+	specialist := maintenance.Specialist{}
+	decision, errMaintenance := specialist.NeedsMaintenance(days_used)
 	if errMaintenance != nil {
 		return "", errMaintenance
 	}
